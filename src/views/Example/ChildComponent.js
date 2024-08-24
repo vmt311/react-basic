@@ -37,10 +37,21 @@ class ChildComponent extends React.Component {
         // destruturing assigment
 
 
-        let { name, age } = this.props
+        let { name, age, arrJobs } = this.props
         return (
             <>
-                <div>child component name: {name} - {age}</div>
+                <div className="job-lists">
+                    {
+                        // map tao ra 1 mang array moi
+                        arrJobs.map((item, index) => {
+                            return (
+                                <div key={item.id }>
+                                    {item.title} - {item.salary}
+                                </div>
+                            )
+                        })
+                    }
+                </div>
             </>
         )
     }
