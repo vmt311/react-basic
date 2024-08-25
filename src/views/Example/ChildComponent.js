@@ -12,6 +12,11 @@ class ChildComponent extends React.Component {
         })
     }
 
+    handleOnClickDelete = (job) => {
+        console.log(' >>> handleOnClickDelete', job)
+        this.props.deleteAJob(job)
+    }
+
     render() {
 
         let { arrJobs } = this.props
@@ -20,32 +25,6 @@ class ChildComponent extends React.Component {
         console.log('>>> check conditional: ', check)
         return (
             <>
-                {/* {showJobs === false && 
-                    <div>
-                        <button onClick={() => this.handleShowHide()}>Show</button>
-                    </div>
-                }
-                {showJobs === true && 
-                <>
-                    <div className="job-lists">
-                        {
-                            // map tao ra 1 mang array moi
-                            arrJobs.map((item, index) => {
-                                if(item.salary >= 500){
-                                    return (
-                                        <div key={item.id }>
-                                            {item.title} - {item.salary}$
-                                        </div>
-                                    )
-                                }
-                            })
-                        }
-                    </div>
-                    <div>
-                        <button onClick={() => this.handleShowHide()}>Hide</button>
-                    </div>
-                </>
-                } */}
                 {
                     showJobs === false ?
                     <div>
@@ -60,7 +39,8 @@ class ChildComponent extends React.Component {
                                     if(item.salary >= 500){
                                         return (
                                             <div key={item.id }>
-                                                {item.title} - {item.salary}$
+                                                {item.title} - {item.salary}$ <></> 
+                                                <span onClick={() => this.handleOnClickDelete(item)}>X</span>
                                             </div>
                                         )
                                     }

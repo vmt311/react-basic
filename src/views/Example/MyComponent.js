@@ -14,13 +14,21 @@ class MyComponent extends React.Component {
        arrJobs: [
         {id: 'Job 1', title: 'Developer', salary: '500'},
         {id: 'Job 2', title: 'Tester', salary: '400'},
-        {id: 'Job 3', title: 'Project manager', salary: '1000'}
+        {id: 'Job 3', title: 'Project manager', salary: '1000'},
        ]
     }
 
     addNewJob = (job) => {
         this.setState({
             arrJobs: [...this.state.arrJobs, job]
+        })
+    }
+
+    deleteAJob = (job) => {
+        let currentJobs = this.state.arrJobs
+        currentJobs = currentJobs.filter(item => item.id !== job.id)
+        this.setState({
+            arrJobs: currentJobs
         })
     }
 
@@ -35,6 +43,7 @@ class MyComponent extends React.Component {
                
                 <ChildComponent 
                 arrJobs={this.state.arrJobs}
+                deleteAJob={this.deleteAJob}
 
 
                 />
