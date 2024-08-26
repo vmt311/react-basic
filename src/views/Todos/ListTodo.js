@@ -3,6 +3,7 @@ import './ListTodo.scss'
 import AddTodo from "./AddTodo";
 import { toast } from "react-toastify";
 
+
 class ListTodo extends React.Component {
 
     state = {
@@ -72,6 +73,11 @@ class ListTodo extends React.Component {
         let isEmptyObj = Object.keys(editTodo).length === 0
         console.log("check empty obj", isEmptyObj)
         return  (
+            <>
+            
+            <p>
+            Simple App TODO
+            </p>
             <div className="list-todo-container">
                 <AddTodo
                     addNewTodo={this.addNewTodo}
@@ -118,6 +124,7 @@ class ListTodo extends React.Component {
                     }
                 </div>
             </div>
+            </>
         )
     }
 }
