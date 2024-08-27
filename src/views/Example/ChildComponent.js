@@ -35,7 +35,7 @@ class ChildComponent extends React.Component {
                         <div className="job-lists">
                             {
                                 // map tao ra 1 mang array moi
-                                arrJobs.map((item, index) => {
+                                arrJobs.map((item) => {
                                     if(item.salary >= 500){
                                         return (
                                             <div key={item.id }>
